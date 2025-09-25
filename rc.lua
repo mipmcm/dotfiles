@@ -23,6 +23,7 @@ local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
+local dpi           = beautiful.xresources.apply_dpi
 
 -- }}}
 
@@ -67,6 +68,8 @@ local function run_once(cmd_arr)
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
     end
 end
+
+awful.spawn.with_shell("feh --bg-scale ~/.config/awesome/themes/powerarrow-dark/yin-yang.jpg")
 
 run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
 
@@ -173,6 +176,15 @@ awful.util.tasklist_buttons = mytable.join(
 )
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme-personal.lua", os.getenv("HOME"), chosen_theme))
+
+beautiful.useless_gap = dpi(5)
+
+-- Force wallpaper reset on reload
+--awful.screen.connect_for_each_screen(function(s)
+   -- if beautiful.wallpaper then
+    --    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+  --  end
+--end)
 
 -- }}}
 
@@ -379,7 +391,7 @@ globalkeys = mytable.join(
     awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
-              {description = "decrement useless gaps", group = "tag"}),
+    {description = "decrement useless gaps", group = "tag"}),
 
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
@@ -830,3 +842,5 @@ client.connect_signal("unmanage", backham)
 tag.connect_signal("property::selected", backham)
 
 -- }}}
+--
+
