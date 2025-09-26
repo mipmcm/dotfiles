@@ -122,9 +122,9 @@ alias pleasegoget='sudo apt install -y'
 alias getridof='sudo apt remove'
 alias later-gator='sudo shutdown now'
 
-PS1='\u:\w\$ '
+PS1='\u|\w }} '
 # Minimalist colorful prompt
-PS1='\[\033[01;32m\]\u:\[\033[00m\]\w\[\033[00m\]\$ '
+PS1='\[\e[38;5;41m\]\u\[\e[0m\]|\[\e[38;5;38;3m\]\w\[\e[0m\] | \[\e[1m\]}}\[\e[0m\] '
 
 # Random quote
 motivate
