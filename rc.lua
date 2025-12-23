@@ -98,19 +98,19 @@ local themes = {
     "vertex"           -- 10
 }
 
-local chosen_theme = themes[2]
-local modkey       = "Mod1"
-local altkey       = "Mod4"
-local terminal     = "xfce4-terminal"
+local chosen_theme = themes[5]
+local modkey       = "Mod4"
+local altkey       = "Mod1"
+local terminal     = "urxvtc"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
-local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "brave"
+local editor       = os.getenv("EDITOR") or "nvim"
+local browser      = "librewolf"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    --awful.layout.suit.floating,
+    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
