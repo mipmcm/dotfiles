@@ -117,26 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 # -- Noel Shemp Additions --
-# 
-# --- System ---
-alias update='sudo apt update && sudo apt upgrade -y'
-alias goget='sudo apt install -y'
-alias getridof='sudo apt remove && sudo apt purge'
-alias later-gator='shutdown now'
-alias snup='sudo snap refresh'
-alias makex='chmod +x'
-#
-# --- Config ---
-#
-alias vimsh='vim ~/.bashrc'
-alias vimawe='vim ~/.config/awesome/rc.lua'
-alias vimvim='vim ~/.vimrc'
-alias reload='source ~/.bashrc'
-alias newfont='bash NewFont.sh'
 
 PS1='\u|\w }} '
 # Minimalist colorful prompt
 PS1='\[\e[38;5;41m\]\u\[\e[0m\]|\[\e[38;5;38;3m\]\w\[\e[0m\] | \[\e[1m\]}}\[\e[0m\] '
 
-# Random quote
-motivate
+# Random movie
+random_movie
